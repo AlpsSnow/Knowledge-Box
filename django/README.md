@@ -1,9 +1,12 @@
-## Django
+## 创建`Django`项目和应用
 
-#### 安装`Django`
+### 安装`Django`
  > ```(KnowledgeBoxEnv) D:\python work\Knowledge-Box\Knowledge-Box\django>pip install Django```
 
-#### 使用`django-admin `创建项目`AlpsSnow`
+#### 去人`Django`的版本信息
+> ```(KnowledgeBoxEnv) D:\python work\Knowledge-Box\Knowledge-Box\django\AlpsSnow>python -m django --version```
+
+### 创建`AlpsSnow`项目
  >  ```(KnowledgeBoxEnv) D:\python work\Knowledge-Box\Knowledge-Box\django>django-admin startproject AlpsSnow```
 
 #### 项目`AlpsSnow`的文件结构 
@@ -34,8 +37,47 @@ Django version 2.2.6, using settings 'AlpsSnow.settings'
 Starting development server at http://127.0.0.1:8000/
 Quit the server with CTRL-BREAK.
  ```
-### 访问`http://127.0.0.1:8000/`
+#### 访问`http://127.0.0.1:8000/`确认`AlpsSnow`项目是否创建成功
 ![示例图](ProjectSuccessfully.png)
 
+### 在`AlpsSnow`项目下创建`APP`应用
 
+> 项目 VS 应用
+>> 项目和应用有啥区别？应用是一个专门做某件事的网络应用程序——比如博客系统，或者公共记录的数据库，或者简单的投票程序。项目则是一个网站使用的配置和应用的集合。项目可以包含很多个应用。应用可以被很多个项目使用。
 
+#### 创建`blog`应用
+> 在`manage.py`的同级目录下执行: ```manage.py startapp blog```
+
+#### `blog`应用的文件结构 
+```
+.
+│  db.sqlite3
+│  manage.py
+│
+├─AlpsSnow
+│  │  settings.py
+│  │  urls.py
+│  │  wsgi.py
+│  │  __init__.py
+│  │
+│  └─__pycache__
+│          settings.cpython-37.pyc
+│          urls.cpython-37.pyc
+│          wsgi.cpython-37.pyc
+│          __init__.cpython-37.pyc
+│
+└─blog
+    │  admin.py
+    │  apps.py
+    │  models.py
+    │  tests.py
+    │  views.py
+    │  __init__.py
+    │
+    └─migrations
+            __init__.py
+```
+> 之后的工作就是开发各个应用了，总之就是编写`MVT`文件（`view.py`,`models.py`,`Templates`（html文件）），在配置项目路由，应用路由，静态文件(`js`,`css`)，等等，吧啦吧啦...
+更详细的开发过程可以看 [blog应用的开发](./blog/README.md)
+
+> 参照：[django官方教程](https://docs.djangoproject.com/zh-hans/2.2/intro/)

@@ -35,13 +35,13 @@ D:\C work>workon KnowledgeBoxEnv
 (KnowledgeBoxEnv) D:\C work>cd D:\python work\Knowledge-Box\Knowledge-Box\django
 ```
 > 5.重建开发环境  
-```pip install -r PyPackages.txt```
+```pip install -r requirement.txt```
 
 > 6.开始写代码，测试... `just do it`  
 
 > 7.冻结开发环境  
 ```	
-pip freeze > PyPackages.txt　　# 安装包列表保存到文件packages.txt中　
+pip freeze > requirement.txt　　# 安装包列表保存到文件packages.txt中　
 ```
 > 8.`git commit`提交成果  
 
