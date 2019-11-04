@@ -141,6 +141,7 @@ admin.site.register(Tag)
 admin.site.register(Post)
 ```
 > 刷新后台管理页面后可以看到`Category` `Tag` `Post` 对象。
+
 ![后台管理页面](后台管理画面.png)
 
 如果`sqlite`数据库报告`no such table: xxxx`的错误，使用如下方法解决：
@@ -168,4 +169,11 @@ def index(request):
 你项目的 `TEMPLATES` 配置项描述了 `Django` 如何载入和渲染模板。默认的设置文件设置了 `DjangoTemplates` 后端，并将` APP_DIRS` 设置成了 True。这一选项将会让 `DjangoTemplates` 在每个 `INSTALLED_APPS` 文件夹中寻找 `templates` 子目录。这就是为什么尽管我们没有像在第二部分中那样修改 `DIRS` 设置，Django 也能正确找到 `blog` 的模板位置的原因。
 
 > 3.在`blog/urls.py`中创建网址和views.py中函数的对应关系。
+
+> 4.启动开发服务器:
+```manage.py runserver```
+
+> 5.访问`http://127.0.0.1:8000/blog`,可以看到从数据库读取的博客数据。
+
+![从数据库返回数据](从数据库返回数据.png)
 
