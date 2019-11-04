@@ -94,6 +94,63 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',         #因为 BlogConfig 类写在文件 blog/apps.py 中，所以它的点式路径是 'blog.apps.PollsConfig
 ]
 ```
-> 2.运行以下的命令，`Django` 会检测你对模型文件的修改，并且把修改的部分储存为一次 迁移。
-```manage.py makemigrations blog```
 
+> 2.运行以下的命令，`Django` 会检测你对模型文件的修改，并且把修改的部分储存为一次 迁移。
+```
+manage.py makemigrations
+```
+
+> 3.运行以下的命令，选中所有还没有执行过的迁移（Django 通过在数据库中创建一个特殊的表 django_migrations 来跟踪执行过哪些迁移）并应用在数据库上 - 也就是将你对模型的更改同步到数据库结构上。
+```
+manage.py migrate
+```
+
+#### 总结一下，改变数据模型的三个步骤
+> 1.编辑 `models.py` 文件，改变模型。
+> 2.运行 `python manage.py makemigrations` 为模型的改变生成迁移文件。
+> 3.运行 `python manage.py migrate` 来应用数据库迁移。
+
+### `Django`后台管理页面
+
+#### 创建一个管理员账号
+
+> 1.执行以下命令创建管理员账号：
+
+```
+manage.py createsuperuser
+Username (leave blank to use 'xxxxx'):
+Email address: xxxxx@qq.com
+Password:
+Password (again):
+Superuser created successfully.
+```
+
+> 2.启动开发服务器:
+```manage.py runserver```
+
+> 3.访问`http://127.0.0.1:8000/admin`进入后台管理系统
+
+#### 向后台管理页面加入`blog`应用
+> 只需要做一件事：我们得告诉管理页面，博客 `Category` `Tag` `Post` 对象需要被管理。打开 blog/admin.py 文件，把它编辑成下面这样：
+
+```
+from django.contrib import admin
+from .models import Category, Tag, Post
+admin.site.register(Category)
+admin.site.register(Tag)
+admin.site.register(Post)
+```
+> 刷新后台管理页面后可以看到`Category` `Tag` `Post` 对象。
+![后台管理页面](后台管理画面.png)
+
+如果`sqlite`数据库报告`no such table: xxxx`的错误，使用如下方法解决：
+> 1.先把应用下的 `migrations` 文件夹下的除了 `__init__.py` 的文件全部删完
+> 2.删除最外侧的 db.sqlite3 文件（数据可以先保存一下）
+> 3.执行下面的命令
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### `blog`应用的视图`view`和模板`Template`
+> 1.在`AlpsSnow/settings.py`中设置模板文件夹的位置。
