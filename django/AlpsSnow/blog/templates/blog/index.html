@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>blog</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'> 
+</head>
+<body>
+    {% if postlist %}        
+        {% for post in postlist %}
+            <h5>
+                {{ post.title }}
+            </h5>
+            <p>
+                {{ post.body}}
+            </p>           
+        {% endfor %}        
+    {% else %}
+        <p>No posts are available.</p>
+    {% endif %}
+</body>
+</html>

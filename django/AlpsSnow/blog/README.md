@@ -153,4 +153,19 @@ python manage.py migrate
 ```
 
 ### `blog`应用的视图`view`和模板`Template`
-> 1.在`AlpsSnow/settings.py`中设置模板文件夹的位置。
+> 1.在`blog/views.py`中创建视图函数。
+```
+from django.shortcuts import render
+from .models import Post
+
+# Create your views here.
+def index(request):
+    postlist = Post.objects.all()
+    return render(request, 'blog/index.html', locals())
+
+```
+> 2.在`AlpsSnow/settings.py`中设置模板文件夹的位置。默认情况下不需要做修改，直接在`blog`应用的目录下创建`templates/blog`。换句话说你的`index.html`文件应该是` blog/templates/blog/index.html `
+你项目的 `TEMPLATES` 配置项描述了 `Django` 如何载入和渲染模板。默认的设置文件设置了 `DjangoTemplates` 后端，并将` APP_DIRS` 设置成了 True。这一选项将会让 `DjangoTemplates` 在每个 `INSTALLED_APPS` 文件夹中寻找 `templates` 子目录。这就是为什么尽管我们没有像在第二部分中那样修改 `DIRS` 设置，Django 也能正确找到 `blog` 的模板位置的原因。
+
+> 3.在`blog/urls.py`中创建网址和views.py中函数的对应关系。
+
