@@ -81,3 +81,11 @@ Quit the server with CTRL-BREAK.
 更详细的开发过程可以看 [blog应用的开发](./AlpsSnow/blog/README.md)
 
 > 参照：[django官方教程](https://docs.djangoproject.com/zh-hans/2.2/intro/)
+
+
+### 局域网中访问`django`项目
+> 1.项目启动的时候设置设置`host ip`
+```manage.py runserver 0.0.0.0:8000```
+
+> 2.项目的`settings.py`的 `ALLOWED_HOSTS` 中设置自己的`ip`，表示允许别人访问时该指定的`host`名
+```ALLOWED_HOSTS = ['192.168.1.3']```
