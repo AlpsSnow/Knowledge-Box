@@ -78,6 +78,6 @@ Quit the server with CTRL-BREAK.
             __init__.py
 ```
 > 之后的工作就是开发各个应用了，总之就是编写`MVT`文件（`view.py`,`models.py`,`Templates`（html文件）），在配置项目路由，应用路由，静态文件(`js`,`css`)，等等，吧啦吧啦...
-更详细的开发过程可以看 [blog应用的开发](./blog/README.md)
+更详细的开发过程可以看 [blog应用的开发](./AlpsSnow/blog/README.md)
 
 > 参照：[django官方教程](https://docs.djangoproject.com/zh-hans/2.2/intro/)
