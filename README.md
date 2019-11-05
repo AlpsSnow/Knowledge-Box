@@ -21,6 +21,7 @@ It is a very useful warehouse to collect and sort out some daily work in learnin
 
 ```workon KnowledgeBoxEnv```
 
+
 > 5.退出python的虚拟环境  
 ```deactivate```
 
@@ -80,3 +81,4 @@ pip freeze > requirement.txt　　# 安装包列表保存到文件packages.txt�
 
 ## 欢迎你的加入！
 
+1.Django项目：[AlpsSnow](./django/README.md)
