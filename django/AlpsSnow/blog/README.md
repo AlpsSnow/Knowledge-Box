@@ -177,3 +177,33 @@ def index(request):
 
 ![从数据库返回数据](从数据库返回数据.png)
 
+### 引入静态资源文件（js,css,图片等）
+
+#### 引入`bootstrap`
+> 1.[下载bootstrap编译后的文件](http://v3.bootcss.com/getting-started/#download)
+
+> 2.配置`AlpsSnow/settings.py`文件
+```python
+STATIC_URL = '/static/' #此处必须
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_static')#此处必须,部署时候会用到
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),#此处可选，django开发服务器static加载顺序
+)
+```
+> 3.html文件开始处插入下面的代码
+```thml
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh">
+...
+<link rel="stylesheet" href="{% static 'bootstrap/3.3.7/css/bootstrap.min.css' %}">
+<script src="{% static 'bootstrap/3.3.7/js/bootstrap.min.js' %}"></script>
+...
+```
+> 4.静态文件结构如下
+
+![static文件结构](static.png)
+
+参照：[Django静态文件配置](https://blog.csdn.net/xujin0/article/details/83421626)
