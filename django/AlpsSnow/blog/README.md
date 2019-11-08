@@ -207,3 +207,36 @@ STATICFILES_DIRS = (
 ![static文件结构](static.png)
 
 参照：[Django静态文件配置](https://blog.csdn.net/xujin0/article/details/83421626)
+
+### 上下文渲染器`context_processors`
+有时候我们想让一些内容和数据在多个模板中都要有，比如导航内容，侧边框内容等等，我们又不想每个视图函数都写一次这些变量内容，怎么办呢？这时候就可以用 Django 上下文渲染器来解决。
+
+> 1.在`blog`应用的文件夹下面创建`context_processors.py`
+```python
+from .models import Tag, Category, Article
+
+"""
+blog app上下文渲染器
+"""
+
+#导航栏和右边栏的上下文渲染器
+def sidebar(request):
+    # 所有标签
+    tag_list = Tag.objects.all()
+
+    # 所有文章分类
+    category_list = Category.objects.all() 
+
+    # 文章阅读量排行榜
+    article_ranklist = Article.objects.all().order_by('-view')[0:6]  
+    
+    return {
+        'category_list': category_list,
+        'article_rank': article_ranklist,
+        'tag_list': tag_list 
+    }
+```
+
+> 2.在项目的`settings.py`文件的`TEMPLATES`的`context_processors`数组中添加`'blog.context_processors.sidebar',`
+
+> 3.在所有的模板文件中就可以直接使用`sidebar`函数返回的对象。
