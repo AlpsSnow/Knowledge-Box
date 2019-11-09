@@ -240,3 +240,36 @@ def sidebar(request):
 > 2.在项目的`settings.py`文件的`TEMPLATES`的`context_processors`数组中添加`'blog.context_processors.sidebar',`
 
 > 3.在所有的模板文件中就可以直接使用`sidebar`函数返回的对象。
+
+### MYSQL的使用
+
+### 安装`MYSQL`和创建数据库
+> 1. [下载MYSQL](https://dev.mysql.com/downloads/installer/)
+> 2. [安装MYSQL](https://www.runoob.com/w3cnote/windows10-mysql-installer.html)
+> 3. 使用`MySql Workbench`创建一个`schema` （在 MySQL 中，SCHEMAS 相当于 DATABASES 的列表。）
+
+#### Django项目中使用MYSQL
+> 1.安装`mysqlclient`包
+```python
+pip install mysqlclient
+```
+
+> 2.修改`settings.py`的`DATABASES`
+```python
+DATABASES = {
+    'default': {
+        #'ENGINE': 'django.db.backends.sqlite3',         #sqlite3的配置
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),   #sqlite3的配置
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'djangoblog',
+        'USER': 'root',
+        'PASSWORD': 'xxx',
+        'HOST': 'localhost',
+        'PORT': '3306',       
+    }
+}
+```
+
+> 3. python manage.py makemigrations
+
+> 4. python manage.py migrate
