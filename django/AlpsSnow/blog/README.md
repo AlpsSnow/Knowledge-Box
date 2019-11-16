@@ -273,3 +273,42 @@ DATABASES = {
 > 3. python manage.py makemigrations
 
 > 4. python manage.py migrate
+
+### 应用程序的命名空间，定义路由名称，视图中反向解析和重定向路由，模板中使用路由名称
+#### 应用程序的命名空间
+`blog/urls.py`中定义:```app_name = 'blog'```
+#### 定义路由名称
+`blog/urls.py`中定义如下的`name`:
+```python
+urlpatterns = [
+    path('', views.index, name='root'),
+    path('index/', views.index, name='index'),
+    path('archive/',views.archive,name='archive'),
+    path('about/',views.about,name='about'),
+    path('detail/<int:id>',views.detail,name='detail'),
+    path('articles/category/<int:category_id>',views.category,name='category'),
+    path('articles/tag/<str:tag_name>',views.tag,name='tag')
+]
+```
+#### 视图中反向解析和重定向路由
+> 1. 引入reverse,redirect
+```python
+from django.shortcuts import render,reverse,redirect
+```
+> 2. 使用冒号“:”运算符指定应用程序的路由，如：`blog:root`,使用`reverse`反向解析路由，使用`redirect`重定向路由地址
+```python
+def archive(request):
+    """
+    blog的archive页
+    @param request
+    @return 'blog/archive.html'
+    """    
+    return redirect(reverse('blog:root')) #'blog/archive'的URL将重定向到blog:root的路由
+```
+#### 模板中使用路由名称
+模板中使用`url`命令指定路由：
+```html
+<a href="{% url 'blog:tag' tag_name=tag.name %}" title="标签：{{ tag.name }} ">
+    <span class="label tags_labe">{{ tag.name }}</span>
+</a>
+```
