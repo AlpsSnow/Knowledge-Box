@@ -4,7 +4,7 @@ It is a very useful warehouse to collect and sort out some daily work in learnin
 
 ### 创建python虚拟环境 
 #### Windows
-1. 安装 `virtualenvwrapper-win`
+1. 安装 `virtualenvwrapper-win`   
 ```pip install virtualenvwrapper-win```
 
 2. 创建系统环境变量
@@ -29,7 +29,7 @@ It is a very useful warehouse to collect and sort out some daily work in learnin
 ※更多关于 `virtualenvwrapper-win` 的使用方法，请参照[windows下安装Python虚拟环境virtualenvwrapper-win](https://www.cnblogs.com/suke99/p/5355894.html)
 
 #### Linux 
-1. 安装 `virtualenvwrapper`
+1. 安装 `virtualenvwrapper`   
 ```pip3 install virtualenvwrapper```
 
 2. 配置全局变量，让每次登陆linux时候，就加载这个virtualenvwrapper.sh脚本文件，使得virtualenvwrapper这个工具生效。
@@ -45,7 +45,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 source ~/.bashrc
 ```
 
-3. 创建 `Knowledge-Box` 项目的虚拟环境  
+3. 创建 `Knowledge-Box` 项目的虚拟环境 
 ```mkvirtualenv KnowledgeBoxEnv```
 
 4. 激活python的虚拟环境 
