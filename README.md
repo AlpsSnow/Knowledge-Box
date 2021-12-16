@@ -55,7 +55,19 @@ source ~/.bashrc
 5. 退出python的虚拟环境  
 ```deactivate```
 
-### 加入进来一起干
+### vscode设置python代码自动补全
+1. `vscode`的`设置`检索`python.autocomplete`
+2. 点击`在settings.json中编辑`
+3. 设置`python.languageServer = Jedi`,[参照说明1](https://github.com/microsoft/vscode-python/issues/7010),[参照说明2](https://stackoverflow.com/questions/55897160/what-is-the-difference-between-jedi-and-python-language-server-in-vs-code-ide)
+4. 设置`python.autoComplete.extraPaths`
+```json
+"python.autoComplete.extraPaths": [        
+        "C:/Python310/Lib/site-packages",
+        "C:/Python310/Scripts"
+    ]
+```
+
+## 加入进来一起干
 
 1. 克隆 `Knowledge-Box` 项目到本地
 2. 创建python虚拟环境
