@@ -67,6 +67,16 @@ source ~/.bashrc
     ]
 ```
 
+### pip升级package
+1. 升级pip
+`python -m pip install --upgrade pip`
+2. 查看已经安装的package
+`pip list`
+3. 检查所有可以升级的package
+`pip list --outdated`
+4. 升级package
+`pip install --upgrade package_name`  
+
 ## 加入进来一起干
 
 1. 克隆 `Knowledge-Box` 项目到本地
