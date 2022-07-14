@@ -25,6 +25,9 @@ It is a very useful warehouse to collect and sort out some daily work in learnin
 5. 退出python的虚拟环境  
 ```deactivate```
 
+6. 显示python虚拟环境一览  
+```lsvitualenv```
+
 
 ※更多关于 `virtualenvwrapper-win` 的使用方法，请参照[windows下安装Python虚拟环境virtualenvwrapper-win](https://www.cnblogs.com/suke99/p/5355894.html)
 
